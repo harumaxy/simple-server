@@ -1,21 +1,15 @@
 # SimpleServer
 
-**TODO: Add description**
+## How to Setup
 
-## Installation
-
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `simple_server` to your list of dependencies in `mix.exs`:
-
-```elixir
-def deps do
-  [
-    {:simple_server, "~> 0.1.0"}
-  ]
-end
+```sh
+mix new simple-server --app simple_server --sup
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at <https://hexdocs.pm/simple_server>.
+```elixir
+# mix.exs
 
+  defp deps do
+    [{:bandit, "~> 1.0"}]
+  end
+```

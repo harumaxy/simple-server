@@ -1,20 +1,15 @@
 defmodule SimpleServer.Application do
-  # See https://hexdocs.pm/elixir/Application.html
-  # for more information on OTP Applications
-  @moduledoc false
-
+  require Logger
   use Application
 
   @impl true
   def start(_type, _args) do
     children = [
-      # Starts a worker by calling: SimpleServer.Worker.start_link(arg)
-      # {SimpleServer.Worker, arg}
+      {Bandit, plug: {SimpleServer, :call}, port: 4000}
     ]
 
-    # See https://hexdocs.pm/elixir/Supervisor.html
-    # for other strategies and supported options
     opts = [strategy: :one_for_one, name: SimpleServer.Supervisor]
+    Logger.info("server listening on http://localhost:4000")
     Supervisor.start_link(children, opts)
   end
 end

@@ -1,18 +1,11 @@
 defmodule SimpleServer do
-  @moduledoc """
-  Documentation for `SimpleServer`.
-  """
+  @behaviour Plug
 
-  @doc """
-  Hello world.
+  import Plug.Conn
 
-  ## Examples
+  def init(options), do: options
 
-      iex> SimpleServer.hello()
-      :world
-
-  """
-  def hello do
-    :world
+  def call(conn, _options) do
+    conn |> send_resp(200, "Hello, world!")
   end
 end
