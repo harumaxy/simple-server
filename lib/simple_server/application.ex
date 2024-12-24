@@ -5,7 +5,7 @@ defmodule SimpleServer.Application do
   @impl true
   def start(_type, _args) do
     children = [
-      {Bandit, plug: {SimpleServer, :call}, port: 4000}
+      {Bandit, plug: SimpleServer, port: 4000}
     ]
 
     opts = [strategy: :one_for_one, name: SimpleServer.Supervisor]
